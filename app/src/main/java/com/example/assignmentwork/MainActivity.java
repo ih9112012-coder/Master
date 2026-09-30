@@ -1,5 +1,6 @@
 package com.example.assignmentwork;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,6 +14,8 @@ import com.example.assignmentwork.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView tvMain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,10 +26,21 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        tvMain = findViewById(R.id.tvMain);
     }
 
     public void onClick(View view) {
-        TextView tvMain = findViewById(R.id.tvMain);
-        tvMain.setText("Hello!");
+        if (tvMain == null) {
+            tvMain = findViewById(R.id.tvMain);
+        }
+        tvMain.setText(R.string.hello);
+    }
+
+    public void onChangeColor(View view) {
+        if (tvMain == null) {
+            tvMain = findViewById(R.id.tvMain);
+        }
+        tvMain.setTextColor(Color.RED);
     }
 }
